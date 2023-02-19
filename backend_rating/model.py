@@ -9,7 +9,10 @@ list_value_cols = ["genders", "producers", "studio"]
 
 fields_name = single_value_cols + list_value_cols
 
-nltk_ressources = ['punkt', 'stopwords']
+nltk_ressources = {
+  "stopwords" : "corpora/stopwords",
+  "punkt" : "tokenizers/punkt"
+}
 
 
 test_predict = {
@@ -24,3 +27,7 @@ test_predict = {
   "result" : 7.7
 }
 
+test_stress = {
+  "nb_request" : 10,
+  "time":60
+} 

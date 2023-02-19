@@ -6,12 +6,14 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
-import sklearn, xgboost
+import sklearn, xgboost # Do not remove
 
 # Download if necessary nltk ressources
-for ressource in md.nltk_ressources:
-    if not nltk.download(ressource):
-        nltk.download(ressource)
+for res_name, res_path in md.nltk_ressources.items():
+    try:
+        nltk.data.find(res_path)
+    except LookupError:
+        nltk.download(res_name)
 
 def __loader(path):
     """

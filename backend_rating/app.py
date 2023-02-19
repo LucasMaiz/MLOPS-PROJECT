@@ -16,6 +16,8 @@ import controller as ctrl
 
 from prometheus_flask_exporter import PrometheusMetrics
 
+import time
+
 app = Flask(__name__)
 
 metrics = PrometheusMetrics(app)
@@ -35,6 +37,9 @@ def predict():
     """
     Return the anime rating prediction based on its information input
     """
+
+    if request.form.get('key') is None and not request.is_json:
+            return jsonify({'error': 'Missing or invalid data in request'}), 500
     rate = ctrl.predict_rating(request)
 
     return jsonify({"rating": rate})
