@@ -3,6 +3,7 @@
 ANIME RATING PREDICTION API
 """
 
+# Importation
 import os
 from flask import Flask
 from flask import request
@@ -16,8 +17,7 @@ import controller as ctrl
 
 from prometheus_flask_exporter import PrometheusMetrics
 
-import time
-
+# Code
 app = Flask(__name__)
 
 metrics = PrometheusMetrics(app)
