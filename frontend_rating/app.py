@@ -23,12 +23,12 @@ def predict():
             'producers': request.form.getlist('producers'),
             'studio': request.form.getlist('studio')
         }
-        
-        response = requests.post('http://localhost:5000/', json=data)
+
+        response = requests.post('http://api-prediction:5000/', json=data)
         return render_template('result.html', result=response.json()["rating"])
     else:
         return render_template('form.html')
 
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    app.run()

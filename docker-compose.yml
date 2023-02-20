@@ -5,11 +5,25 @@ networks:
   driver: bridge
 
 services:
+ frontend-prediction:
+  build: ./frontend_rating
+  container_name: frontend-prediction
+  ports:
+   - 5001:5001
+  expose:
+    - 5001
+  restart: unless-stopped
+  networks:
+   - monitoring
+   
  api-prediction:
   build: ./backend_rating
   container_name: api-prediction
   ports:
    - 5000:5000
+  expose:
+    - 5000
   restart: unless-stopped
   networks:
    - monitoring
+
