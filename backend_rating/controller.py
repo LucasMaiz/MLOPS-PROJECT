@@ -66,7 +66,7 @@ def __preprocessing(request):
     # LOAD
     data = request.form
     if len(request.form)==0:
-        data = request.json
+        data = request.json 
 
     df = pd.DataFrame({
         k: [data[k]]

@@ -38,7 +38,7 @@ def predict():
     Return the anime rating prediction based on its information input
     """
 
-    if request.form.get('key') is None and not request.is_json:
+    if len(request.form)==0 and not request.is_json:
             return jsonify({'error': 'Missing or invalid data in request'}), 500
     rate = ctrl.predict_rating(request)
 
