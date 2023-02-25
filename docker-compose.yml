@@ -7,6 +7,7 @@ networks:
 services:
  frontend-prediction:
   build: ./frontend_rating
+  image: wvaihau/frontend-prediction-image:latest
   container_name: frontend-prediction
   ports:
    - 5001:5001
@@ -18,6 +19,7 @@ services:
    
  api-prediction:
   build: ./backend_rating
+  image: wvaihau/api-prediction-image:latest
   container_name: api-prediction
   ports:
    - 5000:5000
