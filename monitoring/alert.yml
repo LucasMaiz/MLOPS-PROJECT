@@ -1,0 +1,10 @@
+groups:
+  - name: prediction-api-alerts
+    rules:
+      - alert: APIDownCritical
+        expr: up{job="api-prediction"} < 1 
+        for: 10s 
+        labels:
+          severity: high
+        annotations:
+          summary: 'The prediction API is unreachable'

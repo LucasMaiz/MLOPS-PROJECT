@@ -24,7 +24,10 @@ metrics = PrometheusMetrics(app)
 
 request_counter = metrics.counter(
     'anime_req_counter', 'Request count by endpoints',
-    labels={'endpoint': lambda: request.endpoint, 'path': lambda: request.path, 'method':lambda:request.method}
+    labels={
+        'endpoint': lambda: request.endpoint, 
+        'path': lambda: request.path,
+        'method':lambda:request.method}
 )
 
 @app.route("/", methods=["GET"])
