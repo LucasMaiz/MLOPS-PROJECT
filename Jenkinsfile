@@ -11,12 +11,15 @@ pipeline {
         stage('Building and unit testing'){
             steps {
                 bat "git checkout ${env.GIT_BRANCH}"
+                bat 'docker-compose up --build -d'
+
                 dir('backend_rating') {
                     bat 'pip install -r requirements.txt'
                     bat "python -m unittest"
                 }
                 dir('frontend_rating') {
                     bat 'pip install -r requirements.txt'
+                    bat 'pytest -s test_front.py'
                 }
             }
         }
@@ -43,7 +46,6 @@ pipeline {
         }
         stage('Pushing to Dockerhub') {
             steps {
-                bat 'docker-compose up --build -d'
                 bat 'docker push wvaihau/api-prediction-image:latest'
                 bat 'docker push wvaihau/frontend-prediction-image:latest'
             }

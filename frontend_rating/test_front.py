@@ -9,15 +9,15 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-import os
+from selenium.webdriver.firefox.options import Options
 
-new_path = 'D:\Loh\Driver\chromedriver_win32'
-existing_path = os.environ['PATH']
-os.environ['PATH'] = new_path + os.pathsep + existing_path
+options = Options()
+options.headless = True
 
 class TestMLOPSfronttest():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    binary = r"C:\Program Files\Mozilla Firefox\firefox.exe"
+    self.driver = webdriver.Firefox(options=options,firefox_binary=binary, executable_path=r'D:\Loh\geckodriver-v0.32.2-win32\geckodriver.exe')
     self.vars = {}
   
   def teardown_method(self, method):
