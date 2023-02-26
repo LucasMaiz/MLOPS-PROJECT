@@ -9,10 +9,15 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import os
+
+new_path = 'D:\Loh\Driver\chromedriver_win32'
+existing_path = os.environ['PATH']
+os.environ['PATH'] = new_path + os.pathsep + existing_path
 
 class TestMLOPSfronttest():
   def setup_method(self, method):
-    self.driver = webdriver.Firefox()
+    self.driver = webdriver.Chrome()
     self.vars = {}
   
   def teardown_method(self, method):

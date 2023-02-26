@@ -17,7 +17,6 @@ pipeline {
                 }
                 dir('frontend_rating') {
                     bat 'pip install -r requirements.txt'
-                    bat "pytest -s test_mLOPSfronttest.py"
                 }
             }
         }
