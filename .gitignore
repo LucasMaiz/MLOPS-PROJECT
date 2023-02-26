@@ -4,13 +4,13 @@ __pycache__/
 *$py.class
 
 # Grafana
-*.tmpl
-*.db
-alerting/
-csv/
-file-collections/
-plugins/
-png/
+# *.tmpl
+# *.db
+# alerting/
+# csv/
+# file-collections/
+# plugins/
+# png/
 
 # Prometheus
 queries.active
