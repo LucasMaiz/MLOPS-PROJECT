@@ -16,8 +16,6 @@ test_predict = {
 i = 0
 
 while True:
-    
-    #print(response.text)
     i += 1
     if i%10==0:
         requests.post('http://localhost:5000/')
